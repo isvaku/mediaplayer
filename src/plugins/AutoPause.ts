@@ -1,4 +1,6 @@
 class AutoPause {
+  threshold: number;
+  player: any;
   constructor() {
     this.threshold = 0.25;
     this.handleIntersection = this.handleIntersection.bind(this);

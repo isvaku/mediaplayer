@@ -4,13 +4,13 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   mode: "production",
-  entry: "./src/index.js",
+  entry: "./src/index.ts",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
   },
   resolve: {
-    extensions: [".js"],
+    extensions: [".js", ".ts"],
   },
   module: {
     rules: [
@@ -24,6 +24,16 @@ module.exports = {
       {
         test: /\.(css)$/i,
         use: [MiniCssExtractPlugin.loader, "css-loader"],
+      },
+      {
+        test: /\.html$/,
+        use: {
+          loader: "html-loader",
+        },
+      },
+      {
+        test: /\.ts$/,
+        use: ["ts-loader"],
       },
     ],
   },
