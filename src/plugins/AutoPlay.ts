@@ -1,8 +1,9 @@
+import MediaPlayer from "../MediaPlayer";
 class AutoPlay {
 	constructor() { }
-	run(player) {
-		if (!player.muted) {
-			player.muted = true;
+	run(player: MediaPlayer) {
+		if (!player.media.muted) {
+			player.media.muted = true;
 		}
 		player.play();
 	}
